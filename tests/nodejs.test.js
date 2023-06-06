@@ -1,6 +1,6 @@
 const test = require('tape');
 const circomlibjs = require('circomlibjs');
-const wasm = require('../pkg-cjs');
+const wasm = require('../');
 
 const A = 'deadbeef';
 const B = '12345678';
