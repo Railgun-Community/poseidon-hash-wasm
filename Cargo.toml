@@ -17,6 +17,8 @@ default = ["console_error_panic_hook"]
 wasm-bindgen = "0.2.63"
 dusk-poseidon = "0.28.2"
 dusk-bls12_381 = "0.11"
+rs-poseidon = { git = "https://github.com/codex-storage/rs-poseidon.git" }
+ruint = { version = "1.7.0", features = ["serde", "num-bigint", "ark-ff"] }
 hex = "0.4"
 getrandom = { version = "0.2", features = ["js"] }
 
