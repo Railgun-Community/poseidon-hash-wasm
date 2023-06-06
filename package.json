@@ -1,0 +1,40 @@
+{
+  "name": "@railgun-community/poseidon-hash-wasm",
+  "version": "0.1.0",
+  "description": "Poseidon hash compiled from Rust to WASM",
+  "author": "RAILGUN Contributors",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Railgun-Community/poseidon-hash-wasm.git"
+  },
+  "homepage": "https://github.com/Railgun-Community/poseidon-hash-wasm#readme",
+  "bugs": {
+    "url": "https://github.com/Railgun-Community/poseidon-hash-wasm/issues"
+  },
+  "files": [
+    "pkg-cjs/poseidon_hash_wasm_bg.wasm",
+    "pkg-cjs/poseidon_hash_wasm_bg.wasm.d.ts",
+    "pkg-cjs/poseidon_hash_wasm.js",
+    "pkg-cjs/poseidon_hash_wasm.d.ts",
+    "pkg-esm/poseidon_hash_wasm_bg.wasm",
+    "pkg-esm/poseidon_hash_wasm_bg.wasm.d.ts",
+    "pkg-esm/poseidon_hash_wasm.js",
+    "pkg-esm/poseidon_hash_wasm.d.ts"
+  ],
+  "main": "pkg-cjs/poseidon_hash_wasm.js",
+  "module": "pkg-esm/poseidon_hash_wasm.js",
+  "types": "pkg-esm/poseidon_hash_wasm.d.ts",
+  "devDependencies": {
+    "@noble/curves": "^1.1.0",
+    "circomlibjs": "hsg88/circomlibjs#ffjavascrip.0.1.0",
+    "tape": "^5.6.1"
+  },
+  "scripts": {
+    "build:cjs": "wasm-pack build --target nodejs --out-dir pkg-cjs",
+    "build:esm": "wasm-pack build --target web --out-dir pkg-esm",
+    "build": "npm run build:cjs && npm run build:esm",
+    "test": "wasm-pack test --firefox --headless && tape test/*.test.js"
+  },
+  "sideEffects": false
+}
