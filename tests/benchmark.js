@@ -15,7 +15,7 @@ run(async () => {
       x = xn.toString(16);
     },
     rs_poseidon_wasm() {
-      x = wasm.poseidon(x, B);
+      x = wasm.poseidon([x, B]);
     },
   });
 
