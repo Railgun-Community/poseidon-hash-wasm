@@ -8,7 +8,7 @@ run(async () => {
   const B = '12345678';
 
   await compare('poseidon', 5000, {
-    circomlib_hsg88() {
+    hsg88_circomlib() {
       const an = BigInt('0x' + x);
       const bn = BigInt('0x' + B);
       const xn = circomlibjs.poseidon([an, bn]);
