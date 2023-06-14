@@ -19,4 +19,8 @@ function poseidon(inputs) {
   return BigInt('0x' + hexOutput);
 }
 
-module.exports = poseidon;
+module.exports = {
+  poseidon,
+  default: () => {},
+  initSync: () => {},
+}
