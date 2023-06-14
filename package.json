@@ -13,6 +13,8 @@
     "url": "https://github.com/Railgun-Community/poseidon-hash-wasm/issues"
   },
   "files": [
+    "index.js",
+    "index.mjs",
     "pkg-cjs/poseidon_hash_wasm_bg.wasm",
     "pkg-cjs/poseidon_hash_wasm_bg.wasm.d.ts",
     "pkg-cjs/poseidon_hash_wasm.js",
