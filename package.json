@@ -22,8 +22,9 @@
     "pkg-esm/poseidon_hash_wasm.js",
     "pkg-esm/poseidon_hash_wasm.d.ts"
   ],
-  "main": "pkg-cjs/poseidon_hash_wasm.js",
-  "module": "pkg-esm/poseidon_hash_wasm.js",
+  "type": "commonjs",
+  "main": "index.js",
+  "module": "index.mjs",
   "types": "pkg-esm/poseidon_hash_wasm.d.ts",
   "devDependencies": {
     "@noble/curves": "^1.1.0",
