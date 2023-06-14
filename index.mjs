@@ -1,5 +1,5 @@
-import init from './pkg-esm/poseidon_hash_wasm.mjs';
-import * as pkg from './pkg-esm/poseidon_hash_wasm.mjs';
+import init from './pkg-esm/poseidon_hash_wasm.js';
+import * as pkg from './pkg-esm/poseidon_hash_wasm.js';
 
 const SCALAR_FIELD =
   21888242871839275222246405745257275088548364400416034343698204186575808495617n;
