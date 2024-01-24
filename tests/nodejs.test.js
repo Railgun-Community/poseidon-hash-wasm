@@ -26,6 +26,22 @@ const HUGE1 = hexToBigInt(HUGE1hex);
 const HUGE2 = hexToBigInt(HUGE2hex);
 const HUGEOUT = hexToBigInt(HUGEOUThex);
 
+test('rs-poseidon should have the correct module shape', async (t) => {
+  t.equal(typeof wasm, 'object', 'exports is an object');
+  t.equal(typeof wasm.default, 'function', 'exports.default is a function');
+  t.equal(
+    typeof wasm.poseidon,
+    'function',
+    'exports.poseidon is a function',
+  );
+  t.equal(
+    typeof wasm.poseidonHex,
+    'function',
+    'exports.poseidonHex is a function',
+  );
+  t.equal(wasm.__esModule, true, 'exports.__esModule is true');
+});
+
 test('hsg88/circomlibjs poseidon 1-arg', async (t) => {
   const x = circomlibjs.poseidon([A]);
   t.equals(x, X1, 'is correct');
