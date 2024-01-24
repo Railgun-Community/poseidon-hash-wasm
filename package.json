@@ -25,7 +25,6 @@
     "pkg-esm/poseidon_hash_wasm.js",
     "pkg-esm/poseidon_hash_wasm.d.ts"
   ],
-  "type": "commonjs",
   "main": "index.js",
   "module": "index.mjs",
   "types": "index.d.ts",
