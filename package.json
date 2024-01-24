@@ -27,7 +27,7 @@
   "type": "commonjs",
   "main": "index.js",
   "module": "index.mjs",
-  "types": "pkg-esm/poseidon_hash_wasm.d.ts",
+  "types": "index.d.ts",
   "devDependencies": {
     "@noble/curves": "^1.1.0",
     "circomlibjs": "hsg88/circomlibjs#ffjavascrip.0.1.0",
