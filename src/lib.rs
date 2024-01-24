@@ -1,6 +1,6 @@
 use js_sys::Array;
 use rs_poseidon::poseidon::hash;
-use ruint::aliases::U256;
+use ruint::{aliases::U256, uint};
 use wasm_bindgen::prelude::*;
 
 #[wasm_bindgen]
@@ -27,6 +27,14 @@ pub fn poseidon(args: &Array) -> Result<String, JsValue> {
     });
     if res.is_err() {
         return Err(res.err().unwrap());
+    }
+    let scalar_field: U256 =
+        uint!(21888242871839275222246405745257275088548364400416034343698204186575808495617_U256);
+    for i in 0..inputs.len() {
+        let input = &inputs[i];
+        if input >= &scalar_field {
+            inputs[i] = input % &scalar_field;
+        }
     }
 
     let output = hash(&inputs);

@@ -16,5 +16,9 @@ export function poseidon(inputs) {
   return BigInt('0x' + hexOutput);
 };
 
+export function poseidonHex(hexInputs) {
+  return pkg.poseidon(hexInputs);
+}
+
 export default init;
 export const initSync = pkg.initSync;

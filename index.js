@@ -21,6 +21,7 @@ function poseidon(inputs) {
 
 module.exports = {
   poseidon,
+  poseidonHex: wasm.poseidon,
   default: () => {},
   initSync: () => {},
 }
