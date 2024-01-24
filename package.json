@@ -31,15 +31,14 @@
   "devDependencies": {
     "@noble/curves": "^1.1.0",
     "circomlibjs": "hsg88/circomlibjs#ffjavascrip.0.1.0",
-    "micro-bmark": "0.3.1",
-    "tape": "^5.6.1"
+    "micro-bmark": "0.3.1"
   },
   "scripts": {
     "build:cjs": "wasm-pack build --target nodejs --out-dir pkg-cjs",
     "build:esm": "wasm-pack build --target web --out-dir pkg-esm",
     "build": "npm run build:cjs && npm run build:esm",
     "test-browser": "wasm-pack test --firefox --headless",
-    "test": "tape tests/*.test.js",
+    "test": "node --test",
     "bench": "node tests/benchmark.js"
   },
   "sideEffects": false

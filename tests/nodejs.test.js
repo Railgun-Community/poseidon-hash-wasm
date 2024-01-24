@@ -1,7 +1,8 @@
-const test = require('tape');
+const test = require('node:test');
+const assert = require('node:assert');
 const circomlibjs = require('circomlibjs');
 const wasm = require('../');
-const lowLevelWasmPoseidon = require('../pkg-cjs/poseidon_hash_wasm').poseidon
+const lowLevelWasmPoseidon = require('../pkg-cjs/poseidon_hash_wasm').poseidon;
 
 function hexToBigInt(hex) {
   return BigInt('0x' + hex);
@@ -26,96 +27,100 @@ const HUGE1 = hexToBigInt(HUGE1hex);
 const HUGE2 = hexToBigInt(HUGE2hex);
 const HUGEOUT = hexToBigInt(HUGEOUThex);
 
-test('rs-poseidon should have the correct module shape', async (t) => {
-  t.equal(typeof wasm, 'object', 'exports is an object');
-  t.equal(typeof wasm.default, 'function', 'exports.default is a function');
-  t.equal(
-    typeof wasm.poseidon,
-    'function',
-    'exports.poseidon is a function',
-  );
-  t.equal(
-    typeof wasm.poseidonHex,
-    'function',
-    'exports.poseidonHex is a function',
-  );
-  t.equal(wasm.__esModule, true, 'exports.__esModule is true');
-});
-
 test('hsg88/circomlibjs poseidon 1-arg', async (t) => {
   const x = circomlibjs.poseidon([A]);
-  t.equals(x, X1, 'is correct');
+  assert.equal(x, X1, 'is correct');
 });
 
 test('hsg88/circomlibjs poseidon 2-arg', async (t) => {
   const x = circomlibjs.poseidon([A, B]);
-  t.equals(x, X2, 'is correct');
+  assert.equal(x, X2, 'is correct');
 });
 
 test('hsg88/circomlibjs poseidon 3-arg', async (t) => {
   const x = circomlibjs.poseidon([A, B, C]);
-  t.equals(x, X3, 'is correct');
+  assert.equal(x, X3, 'is correct');
 });
 
 test('hsg88/circomlibjs with huge numbers', async (t) => {
   const x = circomlibjs.poseidon([HUGE1, HUGE2]);
-  t.equal(x, HUGEOUT, 'is correct')
-})
+  assert.equal(x, HUGEOUT, 'is correct');
+});
+
+test('rs-poseidon should have the correct module shape', async (t) => {
+  assert.equal(typeof wasm, 'object', 'exports is an object');
+  assert.equal(
+    typeof wasm.default,
+    'function',
+    'exports.default is a function',
+  );
+  assert.equal(
+    typeof wasm.poseidon,
+    'function',
+    'exports.poseidon is a function',
+  );
+  assert.equal(
+    typeof wasm.poseidonHex,
+    'function',
+    'exports.poseidonHex is a function',
+  );
+  assert.equal(wasm.__esModule, true, 'exports.__esModule is true');
+});
 
 test('rs-poseidon wasm poseidon 1-arg', async (t) => {
   const x = wasm.poseidon([A]);
-  t.equals(x, X1, 'is correct');
+  assert.equal(x, X1, 'is correct');
 });
 
 test('rs-poseidon wasm poseidon 2-arg', async (t) => {
   const x = wasm.poseidon([A, B]);
-  t.equals(x, X2, 'is correct');
+  assert.equal(x, X2, 'is correct');
 });
 
 test('rs-poseidon wasm poseidon 3-arg', async (t) => {
   const x = wasm.poseidon([A, B, C]);
-  t.equals(x, X3, 'is correct');
+  assert.equal(x, X3, 'is correct');
 });
 
 test('rs-poseidon with huge numbers', async (t) => {
   const x = wasm.poseidon([HUGE1, HUGE2]);
-  t.equal(x, HUGEOUT, 'is correct')
-})
+  assert.equal(x, HUGEOUT, 'is correct');
+});
 
 test('rs-poseidon Hex wasm poseidon 1-arg', async (t) => {
   const x = wasm.poseidonHex([Ahex]);
-  t.equals(x, X1hex, 'is correct');
+  assert.equal(x, X1hex, 'is correct');
 });
 
 test('rs-poseidon Hex wasm poseidon 2-arg', async (t) => {
   const x = wasm.poseidonHex([Ahex, Bhex]);
-  t.equals(x, X2hex, 'is correct');
+  assert.equal(x, X2hex, 'is correct');
 });
 
 test('rs-poseidon Hex wasm poseidon 3-arg', async (t) => {
   const x = wasm.poseidonHex([Ahex, Bhex, Chex]);
-  t.equals(x, X3hex, 'is correct');
+  assert.equal(x, X3hex, 'is correct');
 });
 
 test('rs-poseidon Hex with huge numbers', async (t) => {
   const x = wasm.poseidonHex([HUGE1hex, HUGE2hex]);
-  t.equal(x, HUGEOUThex, 'is correct')
-})
+  assert.equal(x, HUGEOUThex, 'is correct');
+});
 
 test('rs-poseidon wasm poseidon wrong input: not an array', async (t) => {
-  t.throws(() => {
+  assert.throws(() => {
     lowLevelWasmPoseidon(A, B);
   }, /TypeError: expected an array of hexadecimal strings/);
 });
 
 test('rs-poseidon wasm poseidon wrong input: array of numbers', async (t) => {
-  t.throws(() => {
+  assert.throws(() => {
     lowLevelWasmPoseidon([1, 2]);
   }, /TypeError: expected an array of hexadecimal strings/);
 });
 
 test('rs-poseidon wasm poseidon wrong input: array of not hex', async (t) => {
-  t.throws(() => {
+  assert.throws(() => {
     lowLevelWasmPoseidon(['foo', 'bar']);
   }, /TypeError: expected an array of hexadecimal strings/);
 });
