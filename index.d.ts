@@ -10,7 +10,7 @@ export function poseidon(args: Array<bigint>): bigint;
 */
 export function poseidonHex(args: Array<string>): string;
 
-declare function init(): void;
+declare function init(): Promise<void>;
 
 export default init;
 export const initSync: () => void;
