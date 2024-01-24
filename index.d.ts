@@ -1,14 +1,16 @@
 /**
-* @param {Array<BigInt>} args
-* @returns {BigInt}
+* @param {Array<bigint>} args
+* @returns {bigint}
 */
-export function poseidon(args: Array<BigInt>): BigInt;
+export function poseidon(args: Array<bigint>): bigint;
 
 /**
 * @param {Array<string>} args
 * @returns {string}
 */
-export function poseidonHex(args: Array<BigInt>): BigInt;
+export function poseidonHex(args: Array<string>): string;
 
-export default () => {};
+declare function init(): void;
+
+export default init;
 export const initSync: () => void;
