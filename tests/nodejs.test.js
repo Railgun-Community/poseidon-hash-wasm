@@ -1,6 +1,6 @@
 const test = require('tape');
 const circomlibjs = require('circomlibjs');
-const poseidonWasm = require('../');
+const wasm = require('../');
 const lowLevelWasmPoseidon = require('../pkg-cjs/poseidon_hash_wasm').poseidon
 
 function hexToBigInt(hex) {
@@ -38,22 +38,22 @@ test('hsg88/circomlibjs with huge numbers', async (t) => {
 })
 
 test('rs-poseidon wasm poseidon 1-arg', async (t) => {
-  const x = poseidonWasm([A]);
+  const x = wasm.poseidon([A]);
   t.equals(x, X1, 'is correct');
 });
 
 test('rs-poseidon wasm poseidon 2-arg', async (t) => {
-  const x = poseidonWasm([A, B]);
+  const x = wasm.poseidon([A, B]);
   t.equals(x, X2, 'is correct');
 });
 
 test('rs-poseidon wasm poseidon 3-arg', async (t) => {
-  const x = poseidonWasm([A, B, C]);
+  const x = wasm.poseidon([A, B, C]);
   t.equals(x, X3, 'is correct');
 });
 
 test('rs-poseidon with huge numbers', async (t) => {
-  const x = poseidonWasm([HUGE1, HUGE2]);
+  const x = wasm.poseidon([HUGE1, HUGE2]);
   t.equal(x, HUGEOUT, 'is correct')
 })
 

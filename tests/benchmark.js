@@ -1,6 +1,6 @@
 const {run, compare, utils} = require('micro-bmark');
 const circomlibjs = require('circomlibjs');
-const poseidonWasm = require('../');
+const wasm = require('../');
 
 function hexToBigInt(hex) {
   return BigInt('0x' + hex);
@@ -17,7 +17,7 @@ run(async () => {
       x = circomlibjs.poseidon([x, A]);
     },
     rs_poseidon_wasm() {
-      x = poseidonWasm([x, A]);
+      x = wasm.poseidon([x, A]);
     },
   });
 
@@ -26,7 +26,7 @@ run(async () => {
       x = circomlibjs.poseidon([x, B]);
     },
     rs_poseidon_wasm() {
-      x = poseidonWasm([x, B]);
+      x = wasm.poseidon([x, B]);
     },
   });
 
