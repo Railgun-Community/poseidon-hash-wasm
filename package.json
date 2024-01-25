@@ -29,7 +29,6 @@
   "module": "index.mjs",
   "types": "index.d.ts",
   "devDependencies": {
-    "@noble/curves": "^1.1.0",
     "circomlibjs": "hsg88/circomlibjs#ffjavascrip.0.1.0",
     "micro-bmark": "0.3.1"
   },

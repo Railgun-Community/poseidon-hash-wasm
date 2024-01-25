@@ -1,6 +1,6 @@
 # Poseidon-hash in WASM
 
-Uses the Rust `dusk-poseidon` crate to implement a performant Poseidon hash
+Uses the Rust `rs-poseidon` crate to implement a performant Poseidon hash
 function, available as WASM.
 
 ## Contributing
