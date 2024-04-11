@@ -1,6 +1,6 @@
 const test = require('node:test');
 const assert = require('node:assert');
-const circomlibjs = require('circomlibjs');
+const circomlibjs = require('@railgun-community/circomlibjs');
 const wasm = require('../');
 const lowLevelWasmPoseidon = require('../pkg-cjs/poseidon_hash_wasm').poseidon;
 

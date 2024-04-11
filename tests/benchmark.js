@@ -1,5 +1,5 @@
 const {run, compare, utils} = require('micro-bmark');
-const circomlibjs = require('circomlibjs');
+const circomlibjs = require('@railgun-community/circomlibjs');
 const wasm = require('../');
 
 function hexToBigInt(hex) {
