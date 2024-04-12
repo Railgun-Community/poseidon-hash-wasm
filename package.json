@@ -29,7 +29,7 @@
   "module": "index.mjs",
   "types": "index.d.ts",
   "devDependencies": {
-    "circomlibjs": "hsg88/circomlibjs#ffjavascrip.0.1.0",
+    "@railgun-community/circomlibjs": "^0.0.8",
     "micro-bmark": "0.3.1"
   },
   "scripts": {
