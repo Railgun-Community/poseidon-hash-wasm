@@ -1,6 +1,6 @@
 {
   "name": "@railgun-community/poseidon-hash-wasm",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Poseidon hash compiled from Rust to WASM",
   "author": "RAILGUN Contributors",
   "license": "MIT",
