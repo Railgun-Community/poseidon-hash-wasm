@@ -40,5 +40,6 @@
     "test": "node --test",
     "bench": "node tests/benchmark.js"
   },
-  "sideEffects": false
+  "sideEffects": false,
+  "packageManager": "yarn@1.22.22"
 }

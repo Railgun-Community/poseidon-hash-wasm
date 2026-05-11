@@ -10,9 +10,8 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '18'
-      - name: Install yarn
-        uses: borales/actions-yarn@v4
-        with:
-          cmd: install
+      - run: corepack enable
+      - name: Install dependencies
+        run: yarn install
       - run: npm run build
       - run: npm run test
